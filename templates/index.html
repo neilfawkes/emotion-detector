@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<h1>Новое изображение</h1>
+
+    <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+  <button type="submit">Отправить</button>
+</form>
+
+{% if img %}
+
+  <h3>Succesfully uploaded</h3>
+  <img src="{{ img }}" alt="connect" width="800" />
+
+{% endif %}
+
+{% endblock %}
+
